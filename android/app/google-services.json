@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "704427799416",
+    "firebase_url": "https://health-3bfd0.firebaseio.com",
+    "project_id": "health-3bfd0",
+    "storage_bucket": "health-3bfd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704427799416:android:77873db7763dca34",
+        "android_client_info": {
+          "package_name": "com.robin.weather.weather_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704427799416-68r9gfa7856rhtkgevm4t19mk7rncg49.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.robin.weather.weather_app",
+            "certificate_hash": "a68eea7ca9950fef3c9ab9c4e495adeb838ffa57"
+          }
+        },
+        {
+          "client_id": "704427799416-m0dqcru1lafifc39mn49kiclnkuaj3fs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANEpSTqEnGCnKoI2xZQe50ldfQ0Ke8744"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704427799416-m0dqcru1lafifc39mn49kiclnkuaj3fs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
