@@ -41,11 +41,10 @@ class DashBoardState extends State<Dashboard> {
     );
   }
 
-  _getPage() {
-    Widget widget = Padding(
+  _getPage(){
+    Widget widget=Padding(
       padding: EdgeInsets.all(12),
-      child: Scrollbar(
-          child: ListView(
+      child: Column(
         children: <Widget>[
           InformationWidget("Body Temperature", "${bodyTemperature.last.value} \u1d52 C", Icon(FontAwesomeIcons.thermometerHalf)),
           InformationWidget("Heart Beat", "${heartBeat.last.value} BPS", Icon(FontAwesomeIcons.heartbeat)),
@@ -72,7 +71,7 @@ class DashBoardState extends State<Dashboard> {
                     ],
                   ),
                   Container(
-                    height: 220,
+                    height: 150,
                     child: DashBoardChart.withSampleData(
                         bodyTemperature, heartBeat),
                   )
@@ -81,15 +80,16 @@ class DashBoardState extends State<Dashboard> {
             ),
           )
         ],
-      )),
+      ),
     );
-    if (this.bodyTemperature.length > 1 && this.heartBeat.length > 1) {
+    if(this.bodyTemperature.length>1&&this.heartBeat.length>1){
       return widget;
     }
     return Center(
       child: CircularProgressIndicator(),
     );
   }
+
 }
 
 class InformationWidget extends StatelessWidget {

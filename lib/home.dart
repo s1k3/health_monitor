@@ -68,7 +68,7 @@ class HomeState extends State<Home> {
           barBackgroundColor: Colors.red[500],
           activeIconColor: Colors.white,
           inactiveIconColor: Colors.white,
-          circleColor: Colors.red[600],
+          circleColor: Colors.red[700],
           textColor: Colors.white,
         ),
       ),
