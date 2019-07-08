@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_app/heartBeat.dart';
 import 'package:weather_app/dashboard.dart';
 import 'package:weather_app/bodyTemperature.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,27 +12,10 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int currentPage = 0;
-  var heartBeats = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
-  var temperatures = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
-  final databaseReference = FirebaseDatabase.instance.reference();
 
   @override
   void initState() {
     super.initState();
-    databaseReference.child("heart_beat").onValue.listen((Event event) {
-      if (this.mounted) {
-        setState(() {
-          heartBeats.add(double.parse(event.snapshot.value.toString()));
-        });
-      }
-    });
-    databaseReference.child("temperature").onValue.listen((Event event) {
-      if (this.mounted) {
-        setState(() {
-          temperatures.add(double.parse(event.snapshot.value.toString()));
-        });
-      }
-    });
   }
 
   @override
@@ -74,9 +56,9 @@ class HomeState extends State<Home> {
       case 0:
         return Dashboard();
       case 1:
-        return HeartBeat(heartBeats);
+        return HeartBeat();
       case 2:
-        return BodyTemperature(temperatures);
+        return BodyTemperature();
     }
   }
 }
