@@ -1,6 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-
+import 'package:weather_app/models/chart_data.dart';
 class LineChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
@@ -12,7 +12,7 @@ class LineChart extends StatelessWidget {
     return new LineChart(
       _createChart(data),
       // Disable animations for image tests.
-      animate: true,
+      animate: false,
     );
   }
 
@@ -40,9 +40,3 @@ class LineChart extends StatelessWidget {
   }
 }
 /// Sample linear data type.
-class ChartData {
-  final int index;
-  final int value;
-
-  ChartData(this.index, this.value);
-}

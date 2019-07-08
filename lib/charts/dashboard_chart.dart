@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/chart_data.dart';
 
 class DashBoardChart extends StatelessWidget {
   final List<charts.Series> seriesList;
@@ -34,33 +35,25 @@ class DashBoardChart extends StatelessWidget {
   }
 
   /// Create one series with sample hard coded data.
-  static List<charts.Series<DashBoardChartData, int>> _createChart(var bodyTemperature,var heartBeat) {
+  static List<charts.Series<ChartData, int>> _createChart(var bodyTemperature,var heartBeat) {
 
     return [
-      new charts.Series<DashBoardChartData, int>(
+      new charts.Series<ChartData, int>(
         id: 'Desktop',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (DashBoardChartData data, _) => data.index,
-        measureFn: (DashBoardChartData data, _) => data.value,
+        domainFn: (ChartData data, _) => data.index,
+        measureFn: (ChartData data, _) => data.value,
         data: bodyTemperature,
       )
       // Configure our custom bar target renderer for this series.
         ..setAttribute(charts.rendererIdKey, 'customArea'),
-      new charts.Series<DashBoardChartData, int>(
+      new charts.Series<ChartData, int>(
         id: 'Tablet',
         colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
-        domainFn: (DashBoardChartData data, _) => data.index,
-        measureFn: (DashBoardChartData data, _) => data.value,
+        domainFn: (ChartData data, _) => data.index,
+        measureFn: (ChartData data, _) => data.value,
         data: heartBeat,
       ),
     ];
   }
-}
-
-/// Sample linear data type.
-class DashBoardChartData {
-  final int index;
-  final int value;
-
-  DashBoardChartData(this.index, this.value);
 }
