@@ -33,7 +33,7 @@ class HeartBeatState extends State<HeartBeat> {
       child: Container(
         height: 400,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
           child: Container(
             height: 200,
             child: LineChart.withData(data),
