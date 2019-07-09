@@ -14,29 +14,32 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int currentPage = 0;
-  List<ChartData> temperatures=[
-    ChartData(0,0)
-  ];
-  List<ChartData> heart_beats=[
-    ChartData(0,0)
-  ];
+  List<ChartData> temperatures = [ChartData(0, 0)];
+  List<ChartData> heart_beats = [ChartData(0, 0)];
   final databaseReference = FirebaseDatabase.instance.reference();
+
   @override
   void initState() {
     super.initState();
-    databaseReference.child("temperatures").onChildAdded.listen((Event event){
-      int value =event.snapshot.value["value"];
-      if(this.mounted){
+    databaseReference.child("temperatures").onChildAdded.listen((Event event) {
+      int value = event.snapshot.value["value"];
+      if (this.mounted) {
         setState(() {
           temperatures.add(ChartData(temperatures.length, value));
+          if (temperatures.length >= 30) {
+            temperatures.removeAt(0);
+          }
         });
       }
     });
-    databaseReference.child("heart_beats").onChildAdded.listen((Event event){
-      int value =event.snapshot.value["value"];
-      if(this.mounted){
+    databaseReference.child("heart_beats").onChildAdded.listen((Event event) {
+      int value = event.snapshot.value["value"];
+      if (this.mounted) {
         setState(() {
           heart_beats.add(ChartData(heart_beats.length, value));
+          if (heart_beats.length >= 30) {
+            heart_beats.removeAt(0);
+          }
         });
       }
     });
@@ -78,12 +81,11 @@ class HomeState extends State<Home> {
   _getPage(int page) {
     switch (page) {
       case 0:
-        return Dashboard(temperatures,heart_beats);
+        return Dashboard(temperatures, heart_beats);
       case 1:
         return HeartBeat(heart_beats);
       case 2:
         return BodyTemperature(temperatures);
     }
   }
-
 }
