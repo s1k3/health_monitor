@@ -46,7 +46,7 @@ class DashBoardState extends State<Dashboard> {
       padding: EdgeInsets.all(12),
       child: ListView(
         children: <Widget>[
-          InformationWidget("Body Temperature", "${bodyTemperature.last.value} \u1d52 C", Icon(FontAwesomeIcons.thermometerHalf)),
+          InformationWidget("Body Temperature", "${bodyTemperature.last.value}\u1d52C", Icon(FontAwesomeIcons.thermometerHalf)),
           InformationWidget("Heart Beat", "${heartBeat.last.value} BPS", Icon(FontAwesomeIcons.heartbeat)),
           Card(
             elevation: 4,
@@ -56,18 +56,18 @@ class DashBoardState extends State<Dashboard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text("Body Temperature",
-                          style: TextStyle(color: Colors.blue)),
+                          style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w500)),
                       SizedBox(
                         width: 15,
                       ),
-                      Text("VS"),
+                      Text("VS",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500)),
                       SizedBox(
                         width: 15,
                       ),
-                      Text("Heart Beat", style: TextStyle(color: Colors.red)),
+                      Text("Heart Beat", style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500)),
                     ],
                   ),
                   Container(
@@ -114,7 +114,7 @@ class InformationWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(this.title,
-                    style: TextStyle(color: Colors.teal[500], fontSize: 16)),
+                    style: TextStyle(color: Colors.teal[500], fontSize: 16,fontWeight: FontWeight.w500)),
                 SizedBox(
                   height: 10,
                 ),
