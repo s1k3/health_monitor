@@ -21,28 +21,23 @@ class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    databaseReference.child("temperatures").onChildAdded.listen((Event event) {
-      int value = event.snapshot.value["value"];
+    databaseReference.child("temperatures").onChildChanged.listen((Event event) async {
       if (this.mounted) {
         setState(() {
+          int value = event.snapshot.value["value"];
           temperatures.add(ChartData(temperatures.length, value));
-          if (temperatures.length >= 30) {
-            temperatures.removeAt(0);
-          }
         });
       }
     });
-    databaseReference.child("heart_beats").onChildAdded.listen((Event event) {
-      int value = event.snapshot.value["value"];
+    databaseReference.child("heart_beats").onChildChanged.listen((Event event) async {
       if (this.mounted) {
         setState(() {
+          int value = event.snapshot.value["value"];
           heart_beats.add(ChartData(heart_beats.length, value));
-          if (heart_beats.length >= 30) {
-            heart_beats.removeAt(0);
-          }
         });
       }
     });
+
   }
 
   @override
