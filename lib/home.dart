@@ -21,11 +21,30 @@ class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    databaseReference.child("temperatures").limitToLast(30).once().then((DataSnapshot snapshot){
+      Map<dynamic, dynamic> values = snapshot.value;
+      values.forEach((key,value) {
+        temperatures.add(ChartData(temperatures.length, value['value']));
+      });
+    });
+    databaseReference.child("heart_beats").limitToLast(30).once().then((DataSnapshot snapshot){
+      Map<dynamic, dynamic> values = snapshot.value;
+      values.forEach((key,value) {
+        heart_beats.add(ChartData(heart_beats.length, value['value']));
+      });
+    });
     databaseReference.child("temperatures").onChildChanged.listen((Event event) async {
       if (this.mounted) {
         setState(() {
           int value = event.snapshot.value["value"];
           temperatures.add(ChartData(temperatures.length, value));
+          List<ChartData> temp = [];
+          if (temperatures.length > 30) {
+            for (int i = 1; i < temperatures.length; i++) {
+              temp.add(ChartData(i - 1, temperatures[i].value));
+            }
+            temperatures = temp;
+          }
         });
       }
     });
@@ -34,6 +53,13 @@ class HomeState extends State<Home> {
         setState(() {
           int value = event.snapshot.value["value"];
           heart_beats.add(ChartData(heart_beats.length, value));
+          List<ChartData> temp = [];
+          if (heart_beats.length > 30) {
+            for (int i = 1; i < heart_beats.length; i++) {
+              temp.add(ChartData(i - 1, heart_beats[i].value));
+            }
+            heart_beats = temp;
+          }
         });
       }
     });
