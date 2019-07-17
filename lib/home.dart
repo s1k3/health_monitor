@@ -24,13 +24,17 @@ class HomeState extends State<Home> {
     databaseReference.child("temperatures").limitToLast(30).once().then((DataSnapshot snapshot){
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key,value) {
-        temperatures.add(ChartData(temperatures.length, value['value']));
+        setState(() {
+          temperatures.add(ChartData(temperatures.length, value['value']));
+        });
       });
     });
     databaseReference.child("heart_beats").limitToLast(30).once().then((DataSnapshot snapshot){
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key,value) {
-        heart_beats.add(ChartData(heart_beats.length, value['value']));
+        setState(() {
+          heart_beats.add(ChartData(heart_beats.length, value['value']));
+        });
       });
     });
     databaseReference.child("temperatures").onChildChanged.listen((Event event) async {
