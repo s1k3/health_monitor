@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "704427799416",
-    "firebase_url": "https://health-3bfd0.firebaseio.com",
-    "project_id": "health-3bfd0",
-    "storage_bucket": "health-3bfd0.appspot.com"
+    "project_number": "78826295608",
+    "firebase_url": "https://healthmonitor-56a4b.firebaseio.com",
+    "project_id": "healthmonitor-56a4b",
+    "storage_bucket": "healthmonitor-56a4b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:704427799416:android:77873db7763dca34",
+        "mobilesdk_app_id": "1:78826295608:android:fde65dfb37f121ec67f1cd",
         "android_client_info": {
-          "package_name": "com.robin.weather.weather_app"
+          "package_name": "com.habiba.health.monitor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "704427799416-68r9gfa7856rhtkgevm4t19mk7rncg49.apps.googleusercontent.com",
+          "client_id": "78826295608-fsdj8rq0d5dqj84a5vq92jfqpse1vk8f.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.robin.weather.weather_app",
+            "package_name": "com.habiba.health.monitor",
             "certificate_hash": "a68eea7ca9950fef3c9ab9c4e495adeb838ffa57"
           }
         },
         {
-          "client_id": "704427799416-m0dqcru1lafifc39mn49kiclnkuaj3fs.apps.googleusercontent.com",
+          "client_id": "78826295608-v8abrcp54s91crctu0d9cv5l2qdoq6pv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyANEpSTqEnGCnKoI2xZQe50ldfQ0Ke8744"
+          "current_key": "AIzaSyCUJmKvu8nGoW7wnTI18-8JCWnTCjx4OUo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "704427799416-m0dqcru1lafifc39mn49kiclnkuaj3fs.apps.googleusercontent.com",
+              "client_id": "78826295608-v8abrcp54s91crctu0d9cv5l2qdoq6pv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

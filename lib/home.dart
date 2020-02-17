@@ -21,7 +21,7 @@ class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    databaseReference.child("temperatures").limitToLast(30).once().then((DataSnapshot snapshot){
+    databaseReference.child("temperature").limitToLast(30).once().then((DataSnapshot snapshot){
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key,value) {
         setState(() {
@@ -29,7 +29,7 @@ class HomeState extends State<Home> {
         });
       });
     });
-    databaseReference.child("heart_beats").limitToLast(30).once().then((DataSnapshot snapshot){
+    databaseReference.child("heartbeat").limitToLast(30).once().then((DataSnapshot snapshot){
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key,value) {
         setState(() {
@@ -37,7 +37,7 @@ class HomeState extends State<Home> {
         });
       });
     });
-    databaseReference.child("temperatures").onChildChanged.listen((Event event) async {
+    databaseReference.child("temperature").onChildChanged.listen((Event event) async {
       if (this.mounted) {
         setState(() {
           int value = event.snapshot.value["value"];
@@ -52,7 +52,7 @@ class HomeState extends State<Home> {
         });
       }
     });
-    databaseReference.child("heart_beats").onChildChanged.listen((Event event) async {
+    databaseReference.child("heartbeat").onChildChanged.listen((Event event) async {
       if (this.mounted) {
         setState(() {
           int value = event.snapshot.value["value"];
